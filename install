@@ -2,3 +2,4 @@
 
 system("cp .vimrc ~/");
 system("cp .screenrc ~/");
+system("cp .git-completion.bash ~/");
