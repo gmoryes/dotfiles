@@ -18,8 +18,8 @@ vbell_msg "bell on %t (%n)"
 caption always "%{= bb}%{+b w}%n %t %h %=%l %H %c"
 hardstatus alwayslastline "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
 
-bindkey "^]" next  # change window with ctrl-p
-bindkey "^[" prev  # change window with ctrl-o
+bindkey "^]" next  # change window with ctrl-]
+bindkey "^[" prev  # change window with ctrl-[
 
 activity "Activity in %t(%n)"
 
