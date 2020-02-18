@@ -1,0 +1,32 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use feature qw(say);
+
+my $home = $ENV{HOME};
+
+my $cur_dir = `pwd`;
+chomp($cur_dir);
+
+chdir $home;
+
+my $dir_bin = "$home/tar_utils";
+my $dev_null = "> /dev/null 2>&1";
+if (!system("mkdir $dir_bin $dev_null")) {
+    say "mkdir $dir_bin $dev_null";
+}
+
+for my $file (qw(pack_tar pack_tar_gz unpack_tar unpack_tar_gz)) {
+    system("cp $cur_dir/$file $dir_bin/");
+    system("chmod +x $cur_dir/$file");
+    say "cp $cur_dir/$file $dir_bin/";
+    say "chmod +x $cur_dir/$file";
+}
+
+system("echo 'export PATH=\"$home/tar_utils:\$PATH\"' >> ~/.bash_profile");
+system("source ~/.bash_profile");
+
+say "echo 'export PATH=\"$home/tar_utils:\$PATH\"' >> ~/.bash_profile";
+say "source ~/.bash_profile";
